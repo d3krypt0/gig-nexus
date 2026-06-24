@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -8,9 +11,11 @@ import { CustomSidebarTrigger } from "@/components/custom-sidebar-trigger";
 import { NavUser } from "@/components/nav-user";
 import { SendIcon, BellIcon } from "lucide-react";
 
-const activeItem = navLinks.find((item) => item.isActive);
-
 export function AppHeader() {
+	const pathname = usePathname();
+	const activeItem =
+		navLinks.find((item) => item.path === pathname) ??
+		(pathname === "/" ? navLinks.find((i) => i.path === "/") : undefined);
 	return (
 		<header
 			className={cn(

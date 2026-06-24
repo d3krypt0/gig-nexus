@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { LayoutGridIcon, SearchIcon, BriefcaseIcon, BookmarkIcon, BarChart3Icon, RefreshCwIcon, SettingsIcon, HelpCircleIcon, BookOpenIcon } from "lucide-react";
+import { LayoutDashboardIcon, SearchIcon, BookmarkIcon, ClipboardListIcon, KanbanIcon, BellRingIcon, BarChart2Icon, PieChartIcon, GlobeIcon, RefreshCwIcon, SettingsIcon, HelpCircleIcon, BookOpenIcon } from "lucide-react";
 
 export type SidebarNavItem = {
 	title: string;
@@ -20,9 +20,8 @@ export const navGroups: SidebarNavGroup[] = [
 		items: [
 			{
 				title: "Dashboard",
-				path: "#/dashboard",
-				icon: <LayoutGridIcon />,
-				isActive: true,
+				path: "/",
+				icon: <LayoutDashboardIcon />,
 			},
 			{
 				title: "Browse Jobs",
@@ -37,17 +36,37 @@ export const navGroups: SidebarNavGroup[] = [
 		],
 	},
 	{
+		label: "Tracker",
+		items: [
+			{
+				title: "My Applications",
+				path: "/applications",
+				icon: <ClipboardListIcon />,
+			},
+			{
+				title: "Pipeline",
+				path: "/pipeline",
+				icon: <KanbanIcon />,
+			},
+			{
+				title: "Follow-ups",
+				path: "/follow-ups",
+				icon: <BellRingIcon />,
+			},
+		],
+	},
+	{
 		label: "Insights",
 		items: [
 			{
 				title: "Analytics",
 				path: "#/analytics",
-				icon: <BarChart3Icon />,
+				icon: <BarChart2Icon />,
 			},
 			{
-				title: "Scraper Status",
-				path: "#/scraper",
-				icon: <RefreshCwIcon />,
+				title: "Platform Stats",
+				path: "#/platform-stats",
+				icon: <PieChartIcon />,
 			},
 		],
 	},
@@ -57,7 +76,12 @@ export const navGroups: SidebarNavGroup[] = [
 			{
 				title: "Sources",
 				path: "#/sources",
-				icon: <BriefcaseIcon />,
+				icon: <GlobeIcon />,
+			},
+			{
+				title: "Scraper Status",
+				path: "/scraper-status",
+				icon: <RefreshCwIcon />,
 			},
 			{
 				title: "Settings",
